@@ -1,0 +1,51 @@
+---
+title: "Oceans and Climate"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
+```
+
+<div class="row-full">
+
+```{r, out.width="100%", out.height= "100%"}
+library(leaflet)
+library(S285)
+S285$elg$lon[S285$elg$lon<0 & !is.na(S285$elg$lon)] <- S285$elg$lon[S285$elg$lon<0 & !is.na(S285$elg$lon)] + 360
+leaflet() %>%
+  addProviderTiles("Esri.OceanBasemap") %>%
+  addPolylines(lng = S285$elg$lon,
+               lat = S285$elg$lat)
+
+# leaflet() %>%
+#     addProviderTiles("Esri") %>%
+#     leaflet::addPolylines(lng=dat$hourly$lon, lat=dat$hourly$lat)
+```
+
+</div>
+
+Oceans and Climate is a [SEA Semester](https://www.sea.edu) program for upper-level science undergraduate students, where they build a complete toolbox of skills vital for careers in ocean science, communication and leadership. The program is based initially on the SEA campus in Woods Hole and then aboard out 135ft Sailing School Vessel Robert C. Seamans on a cruise track from New Zealand to Tahiti.
+
+## Research
+
+Students all develop a collaborative [research project](../S285_research) during the program. The process begins on shore as students work in teams to select a research topic, build their background knowledge, devise a research question, and design an experiment to answer that question. This culminates in a project proposal and poster at the end of the shore component.
+
+Students then take these projects to sea and undertake novel oceanographic research in our fully equiped lab on the SSV Robert C. Seamans. Observational Ocean science is never straight-forward though, so students learn to refine their research questions, develop new hypotheses and stay responsive as the ocean conditions modify all of our best-laid-plans.
+
+As the sea component progresses, students analyse their data and present their findings to the ships community and in an web paper for publication on this site.
+
+## Data Communication and Visualization
+
+Research only makes an impact when others hear about it and understand its relevence. But how do we communicate science with the right audiences in the right format?
+
+On the Oceans and Climate program, we expose students to two forms of communication in an attempt to answer this question: Data Visualization and Radio Production.
+
+### Data Visualization 
+
+We introduce students to many theories of effective graphic communication. This includes what symbolism to use, how to physically structure a communication, how an audience digests a static document, what color palettes are effectivce and accessible, and when interactive graphics are appropriate.
+
+We then use tools within R to develop effective communication visuals using data from international or SEA archives. These skills prove invaluable for developing student proposal posters and their final research write-ups.
+
+### Radio Production
+
+All students also produce a radio story to practice the skills needed to talk to a general audience about a technical topic. We exposing students to theories of how climate information is absorbed by a general audience and Last year's students created profiles of local Woods Hole Scientists.s

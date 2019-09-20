@@ -1,0 +1,10 @@
+<div class = "post-grid">
+  {{ range .Paginator.Pages }}
+  <div class = "post-image lr" style = "background-image: linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ), url({{ .Params.image }})">
+    <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}"><h4>{{ upper .Title }}</h4></a>
+  </div>
+{{ end }}
+  </div>

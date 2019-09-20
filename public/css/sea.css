@@ -1,0 +1,148 @@
+body {
+    line-height:1;
+    font:125%/1.8em Arial, Helvetica, "Liberation sans", "Bitstream Vera Sans", sans-serif;
+    color:#4a4a4a;
+}
+
+p {font: 125%/2.0em Raleway, sans-serif;margin-bottom: 0.75em;}
+
+img, video, canvas {max-width: 100%;}
+
+<!---
+h1 {
+    font: 5.0em 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    margin: -55px 0 0 2%;
+    position: absolute;
+    text-shadow: 0 2px 5px #000000;
+    z-index: 200;
+}
+--->
+
+
+
+h1 {
+    font: 5.0em 'Raleway' Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color:#c4122f;
+    margin-bottom:10px;
+}
+
+
+h2 {font: 2.4em 'Raleway', Arial, sans-serif;letter-spacing: 0.03em; color:#c4122f; margin-bottom:10px;}
+
+h3 {
+    font: 1.8em 'Raleway', Arial, sans-serif;
+    letter-spacing: 0.03em;
+    color:#276494;
+    margin-bottom:10px;
+}
+
+h3 a {
+    text-decoration: none;
+}
+
+h4 {font: 1.3em 'Raleway', Arial, sans-serif;
+    letter-spacing: 0.03em;
+    color:#4a4a4a;
+}
+
+h5 {font: 1.1em 'Raleway', Arial, sans-serif;
+    letter-spacing: 0.03em;
+    color:#4a4a4a;
+}
+
+header#logo_2014 {
+    margin: 0 auto;
+    padding: 6px;
+    width:100%;
+    text-align:left;
+    max-width:90rem;
+    padding-left:2rem;
+    padding-right:2rem;
+}
+
+
+footer.footer	{
+	background:#4a4a4a;
+	width:100%;
+	overflow:hidden;
+	text-align:left;
+	align:left;
+}
+
+
+
+div.inside	{
+	padding:10px 0 5px;
+	margin:auto;
+	width: 96%;
+	align:center;
+}
+
+
+div.leftfooter	{
+    width: 120px;
+	float:left;
+	overflow:hidden;
+}
+
+div.rightfooter	{
+	width:42%;
+        float:right;
+	overflow:hidden;
+	margin-top:20px;
+}
+
+div.rightfooter img	{
+float:right;
+}
+
+
+div.footer-white {
+	width:14.4%;
+	float:left;
+	overflow:hidden;
+	border-left: 1px solid #9d9d9d;
+	margin-top:20px;
+}
+
+div.footer-white-first {
+	width:14.2%;
+	float:left;
+	overflow:hidden;
+	border-left: 0px solid #9d9d9d;
+	margin-top:20px;
+}
+
+div.footer-white ul, div.footer-white-first ul {list-style:none;
+					       padding-left:0px;}
+
+div.footer-white ul li a, div.footer-white-first ul li a {
+	color: white;
+	font-weight:normal;
+	text-decoration:none;
+	font-size: 12px;
+}
+
+div.footer-white ul li a:hover, div.footer-white-first ul li a:hover { text-decoration:underline;}
+
+div.footer-white ul li a.title, div.footer-white-first ul li a.title {font-weight:normal;font-size: 140%;}
+
+div.foot_inside	{clear:both; overflow:hidden; margin-bottom: 10px;}
+
+
+@media only screen and (max-width:768px) {
+div.footer-white-first, div.footer-white {
+    display:none;
+}
+
+div.leftfooter	{
+    text-align:center;
+    width:100%
+}
+
+}

@@ -1,0 +1,346 @@
+---
+title: "Light Dependent Microzooplankton Grazing"
+image: /s285_research/Bottles.jpg
+---
+
+```{r setup, include=FALSE}
+
+
+# leave this, this just helps with graphic representation
+# knitr::opts_chunk$set(dev='png', dev.args = list(type = "cairo"), dpi = 150)
+knitr::opts_chunk$set(warning = FALSE, error = FALSE, echo = FALSE, message = FALSE, cache = TRUE, out.width='100%', fig.width=9)
+
+# include libraries you'll need here
+library(tidyverse)
+library(S285)
+library(devtools)
+library(seapacific)
+
+# Additional processing code here
+df <- read_csv("mecky_raven_data/Inbabies_4_BEN.csv")
+df <-df[1:9,]
+
+
+```
+
+
+### Light dependent Microzooplankton grazing on phytoplankton incubation experiment 
+
+![](Bottles.jpg) 
+
+Light dependent grazing of zooplankton on phytoplankton is a potential top down control on the location of the deep chlorophyll maximum(DCM) in the South Pacific ocean. Our research project was designed around the theory that solar radiation can aid zooplankton digestion by speeding up the break down of chlorophyll-a pigments. This process could potentially allow for higher zooplankton grazing rates in high light environments, meaning zooplankton grazing would be more efficient on the surface of the ocean and therefore deepening the DCM. 
+
+To test if light dependent micro-zooplankton grazing was occuring along our cruise track, we completed five 24-hour incubations on the foredeck of the Robert C. Seamans, SSV. Our hypothesis was that a decrease in light intensity will correspond with a decrease in micro-zooplankton grazing. Fluorescence and depth data was collected from daily CTD casts. Data from these casts were used to ensure each incubation sample water would have sufficient levels of chlorophyll-a as well as would be photoacclimated to deal with surface light level. 
+
+Data from four of the five incubations were graphed and analyzed to see overall grazing rates of microzooplankton. Data from the second incubation was unusable due to a mistake in the experimental setup. The results from each incubation showed different trends, only one of which, experiment 3, supported our hypothesis. The results between incubations raised many questions. To our knowledge, each incubation was set up in the same way for the same amount of time, the main difference between each incubation was the location and depths that water samples were collected. The daily light conditions also varied between incubations based on local weather patterns, the first few incubations occurred on very cloudy days, whereas the third and fourth incubations took place on sunny days. This is important as it means that the chlorophyll-a between each experiment experienced different light exposure.
+
+This image shows three-of-the-nine incubation bottles, one at each light level screening. The bottle furthest to the left shows 100% screening level. The middle bottle shows 60% of surface light screening. The bottle furthest to the right shows a bottle with 10% light level screening. These bottles were filled with a total of 500ml of water and floated with their lids down to ensure all bottles were exposed to the same amount of light. Two hardware-nuts were attached to each lid using wire to weighdown the tops of the bottles to ensure they sit with their lids facing the bottle of the tank.  
+
+### Map
+```{r} 
+
+df<-S285$ctd2
+
+
+#load world map data
+world <- map_data("world2")
+
+# move values so all are positive 
+df$lon[df$lon<0] <- df$lon[df$lon<0] +360
+
+
+#world map
+ggplot(world, aes(long, lat)) + 
+  geom_polygon(aes(long, lat, group = group), data = world, fill = "darkgreen") +
+  coord_quickmap(xlim = c(160,220), ylim = c(-50,-15)) +
+  geom_path(df, mapping = aes(lon, lat, color = fluor), size = 1)
+
+#create labels for Latitude
+latlab <- seq(-50,-15,5)
+latlab_text <- paste(latlab,"ºS")
+latlab_text <- paste(abs(latlab), "ºS")
+
+#creating labels for longitude so that at 180 they go from ºE to ºW
+lonlab <- seq(160,220,10)
+deglab <- ifelse(lonlab>180, "ºW", "ºE")
+lonlab2 <- lonlab
+lonlab2[lonlab2>180] <- abs(lonlab2[lonlab2>180] - 360)
+lonlab_text <- paste(lonlab2,deglab)
+
+df2<-data_frame(lat=c(-43.598, -38.641, -32.585, -27.375), lon=c(176.196, -174.306, -158.23, -152.361))
+df2$lon[df2$lon<0] <- df2$lon[df2$lon<0] +360
+
+ggplot(df, aes(lon, lat)) + 
+  geom_path(aes(color = fluor), size = 1) +
+  geom_point(df2, mapping = aes(lon, lat), color="red", size= 2) +
+  geom_polygon(aes(long, lat, group = group), data = world, fill = "black") +
+  coord_quickmap() + 
+  coord_quickmap(xlim = c(160,220), ylim = c(-50,-15)) +
+  scale_y_continuous(breaks = latlab, labels = latlab_text) + 
+  scale_x_continuous(breaks = lonlab, labels = lonlab_text) +
+  scale_color_distiller(palette = "green") +
+  labs(x = NULL, y = NULL) +
+  theme_bw() +
+  theme(plot.background = element_rect(fill = "white")) + 
+  theme(panel.background = element_rect(fill = "#deebf7")) +
+  theme(panel.grid = element_line(color = "grey", size = .2), panel.grid.minor = element_blank())
+
+```
+ 
+This figure shows the change in surface level chlorophyll-a along our cruise track from Lyttelton, New Zealand to Papeete, Tahiti. The chlorophyll-a levels are taken from the flow-through data that comes from 3 meters below the ocean surface. The four incubations in which data was collected and analyzed are mapped in order of occurance, with the first incubation closest to New Zealand, and all consecutive other incubations following. Sample water for incubations one and three were collected in the more productive waters around New Zealand and the Chatham Islands, whereas water samples for incubations four and five were collected in unproductive water from the South Pacific gyre. 
+
+
+### Methods
+
+![](incubaby2_RAVEN.jpg)
+
+```{r}
+
+# Image/figure for methods section
+
+```
+ 
+
+Water samples are collected around 2300 to limit light exposure before the study begins. Incubation water is collected using a niskin bottle carousel or a surface sampling bucket depending on the target depth. The target depth varies between incubations due the change in location of the deep chlorophyll maximum (DCM) as we travel from New Zealand and towards Tahiti. At the start of our journey, surface waters had high chlorophyll-a levels, yet as we move farther into the gyre, the water has become blue-blue-blue-dead-dead-dead due to a deeper DCM. 
+
+The study uses a three-point dilution at three different light levels. A three point dilution is important as it allows us to determine grazing rate without assuming a linear relationship between grazing and light exposure. To test the effect of light on grazing, sea water incubations are conducted in three distinct light conditions, 100%, 60%, and 10% of ambient light. Varying light levels are created using mesh screened bags with varying sizes. A three-point dilution of sea water to dilutant water is used to calculate grazing rate. One dilution was 100% sea water, 1:0, the second was 50% sea water, 1:1, and lastly, the third was 25% sea water, 1:3. These dilution proportions, as well as equations used to determine grazing rate, were influenced by Landry and Hassett's 1982 experiment. Throughout this experiment, diluent water came from the same depth and the sea water. Dilutant water is filtered through a 0.2 micron-filter to remove any organisms that may alter the concentration of phytoplankton and microzooplankton present in the sea water. The initial chlorophyll-a present in each incubation bottle was measured by filtering one 500 ml sea water sample at the time of setup, 0 hours, and multiplying it by the dilution factor. 
+
+Each hour a shipmate would mix the bottles inside their tank to ensure each bottle is exposed to similar light levels. The water within the bottle itself was shaken-up naturally by the waves. Temperature inside of each bottle is held constant using a salt water flow through system that circulates water through the incubation tank from 3 meters below the oceans surface. 
+
+After 24 hours, 400 ml of incubation water is filtered through a 0.45 micron filter to collect final chlorophyll-a levels. Each 0.45 micron filter is placed in a cuvette which is ultimately processed in 7 ml of acetone to break down the filter and lyse the cells. This solution is vortexed and centrifuged before being run through a Turner 10AU benchtop Flourometer with an exacting wavelength of 426 nm and an emmission wavelength of 680 nm. 
+
+unfortunately results from incubation 2 are unusable due to a mix up in the setup of the experiment. For this experiment, rather than having one dilution at each screening level there were two 10% screening bottles at 1:1 dilution and no 60% screening, and at 1:3 dilution there were two 60% screening bottles and no 10% screenings. 
+
+
+### Incuabtion 1: 43º35.9'S x 176º11.9'E, Depth: surface , Initial Chlorophyll-a value: 1.746, % surface light level: 100%
+
+```{r}
+# Chunk for figures
+library(tidyverse)
+df <- read_csv("mecky_raven_data/incubation_one_BEN.csv")
+
+df <-df[1:9,]
+
+
+#Adding K variable
+df <- mutate(df, r = (1/24)*log(df$CHL_after/df$CHL_before))
+df <- mutate(df, dminusone = 1-Dilutions)
+
+#making a graph at one depth 3 dilutions 1 light level (ADDED color to this to make sure we know which is which) 
+ggplot(df, aes(dminusone, r, color = as.character(Light), group = as.character(Light))) +  
+  geom_point() +
+  geom_smooth(method = "lm", 
+              fullrange = TRUE, 
+              se = FALSE,
+              size = .5) + 
+  theme_bw() + 
+  labs(x = "1 - Dilution",
+       y = "r, Net Phytoplankton Growth", 
+       title = "Grazing Rates through Linear Regression Analysis", 
+       color = "Light") + 
+  theme(panel.grid = element_line(color = "grey", size = .5), 
+        panel.grid.minor = element_blank())
+
+#finding gradient of this graph 
+light1 <- lm(r ~ dminusone, data = filter(df,Light == 1.00))
+light2 <- lm(r ~ dminusone, data = filter(df,Light == 0.60))
+light3 <- lm(r ~ dminusone, data = filter(df,Light == 0.10))
+
+#make new column K = equations 
+df <- mutate(df, grazing = rep(c(coef(light1)[[2]], coef(light2)[[2]], coef(light3)[[2]]), each = 3))
+
+#plotting graph light vs grazing rate
+
+
+```
+
+
+ 
+
+This figure shows an overall decrease in microzooplankton grazing between the three light levels. The 60% light level had the lowest net phytoplankton growth, meaning there was the most grazing occuring. The 10% light level shows the lowest grazing and the 100% light level shows a medium amount of grazing. 
+
+The results from this figure contradict our hypothesis that in higher light environments microzooplankton grazing on phytoplankton will be greater than in low light environments. In this figure specifically, we find it very odd that the grazing rate of microzooplankton shows a negative slope. When the grazing rates from the three trend lines on this graph are compared there is a negative relationship between light condition and grazing rate, with the lowest grazing occurring in the highest light condition. This raises a question about net phytoplankton growth possibly being highly affected by increased phytoplankton growth in the high light environments and consequentially offsetting high grazing rates. It makes sense that there would be a severe decease in phytoplankton growth in the lowest light condition compared to the highest light condition. This is not a strictly linear trend, the 60% light level does show a higher grazing rate than the lowest light level. 
+
+### Incubation 3: 38º38.5'S x 174º18.4'W, Depth: 40m, Initial Chlorophyll-a value: 0.043, % surface light level: 60%
+
+```{r}
+# Chunk for figures
+library(tidyverse)
+df <- read_csv("mecky_raven_data/incubation_3.2_BEN.csv")
+
+df <-df[1:9,]
+
+
+#Adding K variable
+df <- mutate(df, r = (1/24)*log(df$CHL_after/df$CHL_before))
+df <- mutate(df, dminusone = 1-Dilutions)
+
+#making a graph at one depth 3 dilutions 1 light level (ADDED color to this to make sure we know which is which) 
+ggplot(df, aes(dminusone, r, color = as.character(Light), group = as.character(Light))) +  
+  geom_point() +
+  geom_smooth(method = "lm", 
+              fullrange = TRUE, 
+              se = FALSE,
+              size = .5) + 
+  theme_bw() + 
+  labs(x = "1 - Dilution",
+       y = "r, Net Phytoplankton Growth", 
+       title = "Grazing Rates through Linear Regression Analysis", 
+       color = "Light") + 
+  theme(panel.grid = element_line(color = "grey", size = .5), 
+        panel.grid.minor = element_blank())
+
+
+#finding gradient of this graph 
+light1 <- lm(r ~ dminusone, data = filter(df,Light == 1.00))
+light2 <- lm(r ~ dminusone, data = filter(df,Light == 0.60))
+light3 <- lm(r ~ dminusone, data = filter(df,Light == 0.10))
+
+#make new column K = equations 
+df <- mutate(df, grazing = rep(c(coef(light1)[[2]], coef(light2)[[2]], coef(light3)[[2]]), each = 3))
+
+
+
+
+```
+
+ 
+
+This figure is made with data from incubation three and shows a positive relationship of net phytoplankton growth between each of the dilutions for all of the light levels. The 10% light level show the highest net phytoplankton growth for the three light levels, meaning the least grazing occured. The 100% light level shows a medium amount of grazing and the 60% light level shows the highest grazing rate.
+
+The results from this figure show a positive correlation between light intensity and grazing rate, which does support our hypothesis. That being said, it is important to note that the highest light level shows lower grazing rates than the 60% light level. This trend was seen throughout our four different incubation studies. Similarly, it is important to note that the linear regression lines made between each light level show liner trends, but the data points are more scattered and varying than originally hoped. This indicates that although our results follow the trend we expected to see, we cannot be too confident with the results seen in this incubation alone. 
+
+
+### Incubation 4: 32º35.1'S x 158º13.8'W, Depth: 50m, Initial Chlorophyll-a value: 0.048, % surface light level: 60%
+
+
+```{r}
+# Chunk for figures
+library(tidyverse)
+df <- read_csv("mecky_raven_data/Inbabies_4_BEN.csv")
+
+
+df <-df[1:9,]
+
+
+#Adding K variable
+df <- mutate(df, r = (1/24)*log(df$CHL_after/df$CHL_before))
+df <- mutate(df, dminusone = 1-Dilutions)
+
+#making a graph at one depth 3 dilutions 1 light level (ADDED color to this to make sure we know which is which) 
+ggplot(df, aes(dminusone, r, color = as.character(Light), group = as.character(Light))) +  
+  geom_point() +
+  geom_smooth(method = "lm", 
+              fullrange = TRUE, 
+              se = FALSE,
+              size = .5) + 
+  theme_bw() + 
+  labs(x = "1 - Dilution",
+       y = "r, Net Phytoplankton Growth", 
+       title = "Grazing Rates through Linear Regression Analysis", 
+       color = "Light") + 
+  theme(panel.grid = element_line(color = "grey", size = .5), 
+        panel.grid.minor = element_blank())
+
+#finding gradient of this graph 
+light1 <- lm(r ~ dminusone, data = filter(df,Light == 1.00))
+light2 <- lm(r ~ dminusone, data = filter(df,Light == 0.60))
+light3 <- lm(r ~ dminusone, data = filter(df,Light == 0.10))
+
+#make new column K = equations 
+df <- mutate(df, grazing = rep(c(coef(light1)[[2]], coef(light2)[[2]], coef(light3)[[2]]), each = 3))
+
+
+```
+
+ 
+This figure shows the grazing phytoplankton growth in our fourth incubation experiment. The different lines represent the different light levels in which the bottles were encased to represent 100%, 60% and 10% insitu light levels. the 100% light shows an overall decreasing trend, whereas the 60% and 100% light levels both show positive growth. These trends seem to be highly influenced by the 50% dilution in which both the 10% and 100% light levels have extremely low net phytoplankton growth.  
+
+
+In the fourth incubation the linear model trend lines do not reliably fit the data for the 10% light level and the 100% light level. The grazing rates calculated from the three trend lines in this figure show a slightly positive correlation betwen light level and grazing, with the 60% light level significantly higher than the 10% or 100%. This data could be representative of light shocking of the phytoplankton in the highest light level. The sample water for this incubation was collected at 50 m with the assumption that that depth would be part of the mixed layer and the plankton there would be acclimated to surface level light intensity. If the phytoplankton were photoacclimated at 50 m it is possible they were shocked by the surface intensity light. 
+
+
+```{r} 
+library(tidyverse)
+df <- read_csv("mecky_raven_data/Incubabies_5_BEN.csv")
+
+
+df <-df[1:9,]
+
+
+#Adding K variable
+df <- mutate(df, r = (1/24)*log(df$CHL_after/df$CHL_before))
+df <- mutate(df, dminusone = 1-Dilutions)
+
+#making a graph at one depth 3 dilutions 1 light level (ADDED color to this to make sure we know which is which) 
+ggplot(df, aes(dminusone, r, color = as.character(Light), group = as.character(Light))) +  
+  geom_point() +
+  geom_smooth(method = "lm", 
+              fullrange = TRUE, 
+              se = FALSE,
+              size = .5) + 
+  theme_bw() + 
+  labs(x = "1 - Dilution",
+       y = "r, Net Phytoplankton Growth", 
+       title = "Grazing Rates through Linear Regression Analysis") + 
+  theme(panel.grid = element_line(color = "grey", size = .5), 
+        panel.grid.minor = element_blank())
+
+
+#finding gradient of this graph 
+light1 <- lm(r ~ dminusone, data = filter(df,Light == 1.00))
+light2 <- lm(r ~ dminusone, data = filter(df,Light == 0.60))
+light3 <- lm(r ~ dminusone, data = filter(df,Light == 0.10))
+
+#make new column K = equations 
+df <- mutate(df, grazing = rep(c(coef(light1)[[2]], coef(light2)[[2]], coef(light3)[[2]]), each = 3))
+
+#plotting graph light vs grazing rate
+```
+ 
+
+This figure is made with data from incubation five. This figure shows decreasing linear trend lines for each of the three light levels; 100%, 60%, and 10%, across the three dilutions; 1:0, 1:1, and 1:3. The results from this incubation show the most grazing occuring in the 100% light level, as there is the least net phytoplankton growth. The 60% and the 10% light levels do not show conclusively that one had more grazing than the other and the points are scattered and over lap in places. Overall the date for this incubation do not support our hypothesis. 
+
+### Grazing Rate: incubation 3
+
+```{r}
+
+# Image/figure for methods section
+df <- read_csv("mecky_raven_data/incubation_3.2_BEN.csv")
+
+df <-df[1:9,]
+
+
+#Adding K variable
+df <- mutate(df, r = (1/24)*log(df$CHL_after/df$CHL_before))
+df <- mutate(df, dminusone = 1-Dilutions)
+
+#finding gradient of this graph 
+light1 <- lm(r ~ dminusone, data = filter(df,Light == 1.00))
+light2 <- lm(r ~ dminusone, data = filter(df,Light == 0.60))
+light3 <- lm(r ~ dminusone, data = filter(df,Light == 0.10))
+
+#make new column K = equations 
+df <- mutate(df, grazing = rep(c(coef(light1)[[2]], coef(light2)[[2]], coef(light3)[[2]]), each = 3))
+
+#plotting graph light vs grazing rate
+
+ggplot(df, aes(Light, grazing)) +  
+  geom_point() +
+  geom_smooth(data = df, 
+              method = "lm", 
+              fullrange = TRUE, 
+              se = FALSE, 
+              color = "black",
+              size = .5) + 
+  theme_classic() +
+  theme(panel.grid = element_line(color = "grey", size = .5), panel.grid.minor = element_blank()) + 
+  labs(x = "Light Level",
+       y = "Grazing Rate", 
+       title = "Grazing Rate over 24 hour Light-Dependent Incubation Experiment")
+
+
+
+```
+
+This graph shows data from incubation three, the only study that seemed to support our hypothesis in that light has an effect on micro-zooplankton grazing. This graph indicates that there is a  correlation between light intensity and grazing rate which suggest light dependent grazing of microzooplankton. Yet, due to this being the only results in which this trend is seen, we cannot confidently state that our hypothesis was proven to be correct.

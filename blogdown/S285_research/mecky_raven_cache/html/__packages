@@ -1,0 +1,15 @@
+base
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+S285
+devtools
+usethis
+seapacific
+maps

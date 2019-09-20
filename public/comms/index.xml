@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Science Communication on Oceans and Climate</title>
+    <link>/oceansandclimate/comms/</link>
+    <description>Recent content in Science Communication on Oceans and Climate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="/oceansandclimate/comms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Indiana Jones of Math</title>
+      <link>/oceansandclimate/comms/comms_test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/oceansandclimate/comms/comms_test/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac feugiat odio. Quisque semper tristique elit, nec egestas massa iaculis vel. Pellentesque id nisl vitae dui dignissim volutpat. Pellentesque egestas, quam eget feugiat feugiat, enim elit varius lorem, ut auctor neque massa ac ante. Maecenas id porttitor odio, vel auctor diam. Vivamus vel leo at velit semper mattis id ac neque. Proin dictum vitae ipsum vitae rutrum. Duis vulputate, mi in malesuada lacinia, eros odio tincidunt arcu, id lobortis nisi orci quis enim.</description>
+    </item>
+    
+  </channel>
+</rss>

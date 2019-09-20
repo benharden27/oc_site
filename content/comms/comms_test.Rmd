@@ -1,0 +1,15 @@
+---
+title: "Indiana Jones of Math"
+image: /s285_research/Bottles.jpg
+video: https://www.sea.edu/video/Study-Abroad-at-Sea540.mp4
+tags: radio
+radio_url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/176479242
+---
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/176479242&color=%23aa483f&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&download=true"></iframe>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac feugiat odio. Quisque semper tristique elit, nec egestas massa iaculis vel. Pellentesque id nisl vitae dui dignissim volutpat. Pellentesque egestas, quam eget feugiat feugiat, enim elit varius lorem, ut auctor neque massa ac ante. Maecenas id porttitor odio, vel auctor diam. Vivamus vel leo at velit semper mattis id ac neque. Proin dictum vitae ipsum vitae rutrum. Duis vulputate, mi in malesuada lacinia, eros odio tincidunt arcu, id lobortis nisi orci quis enim. Phasellus ut lacus tortor. In varius velit non erat varius elementum.
+
+Vivamus laoreet ipsum placerat lectus tincidunt, id congue ex fringilla. Quisque vitae eros lacinia velit blandit vestibulum a sit amet tortor. Nam est tortor, pulvinar at odio eu, viverra suscipit dui. Nunc accumsan risus et enim viverra dignissim. Duis nec vehicula leo, ac euismod dui. Aenean elit est, scelerisque ac laoreet vitae, euismod non enim. Donec et tellus turpis. In nisl est, hendrerit vel dapibus a, sagittis ut nulla.
+
+Phasellus a aliquet magna, non volutpat justo. Curabitur vestibulum elit id elit eleifend, et efficitur urna posuere. Aenean vestibulum eros consectetur nisi rhoncus, ut commodo diam dictum. Proin ornare ut lectus eu lobortis. Aliquam eget dolor vel massa sodales pulvinar. Aliquam a hendrerit nisi, sollicitudin semper velit. Sed sollicitudin sagittis purus, et pulvinar felis elementum nec. Morbi sed tempor metus. Aenean maximus pretium turpis, id gravida massa pulvinar a.

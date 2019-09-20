@@ -1,0 +1,10 @@
+
+<section class="container page">
+  <article>
+{{ if not (isset .Params "image") }} 
+      <h1 class = "title">{{ .Title }}</h1>
+{{ end }}
+
+    {{ .Content }}
+  </article>
+</section>

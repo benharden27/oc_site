@@ -1,0 +1,13 @@
+<section class="container list">
+  <h1>
+    {{- if eq .Kind "taxonomy" -}}
+      {{- i18n .Data.Singular | title -}}
+      {{- print ": " -}}
+    {{- end -}}
+
+    {{- .Title -}}
+</h1>
+{{ .Content }}
+  {{ partial "post_grid.html" .}}
+  {{ partial "pagination.html" . }}
+</section>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Researches on Oceans and Climate</title>
+    <link>/research/</link>
+    <description>Recent content in Researches on Oceans and Climate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Characterizing Changes in Water Masses of the Southwest Pacific</title>
+      <link>/research/ginny_amy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/research/ginny_amy/</guid>
+      <description>AAIW and SAMW: What are they and where are they located? Antarctic Intermediate Water (AAIW) and Subantarctic Mode Water (SAMW) are two types of water masses formed near Antarctica. A water mass is a body of water with similar physical properties such as temperature, salinity, and density, throughout. These properties are maintained as the water mass moves away from its region of formation and into the interior of the ocean, creating a type of fingerprint.</description>
+    </item>
+    
+    <item>
+      <title>Light Dependent Microzooplankton Grazing</title>
+      <link>/research/mecky_raven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/research/mecky_raven/</guid>
+      <description>Light dependent Microzooplankton grazing on phytoplankton incubation experiment  Light dependent grazing of zooplankton on phytoplankton is a potential top down control on the location of the deep chlorophyll maximum(DCM) in the South Pacific ocean. Our research project was designed around the theory that solar radiation can aid zooplankton digestion by speeding up the break down of chlorophyll-a pigments. This process could potentially allow for higher zooplankton grazing rates in high light environments, meaning zooplankton grazing would be more efficient on the surface of the ocean and therefore deepening the DCM.</description>
+    </item>
+    
+    <item>
+      <title>Mesoscale Structure in the Southwest Pacific</title>
+      <link>/research/ross_tye/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/research/ross_tye/</guid>
+      <description>An ocean front is a region in the ocean where the density changes sharply. These regions are often characterized by baroclinic instability, in which the pressure and density gradients of the water become misaligned. This can result in the creation of eddy flows, zonal jets, or vertical currents. The goal of this study is to investigate the relationship between temperature and salinity gradients and co-located changes in current velocity. These mesocale current features can influence other important oceanic factors like the mixed layer depth, nutrient cycling, carbon sequestration, and thermoregulation.</description>
+    </item>
+    
+  </channel>
+</rss>

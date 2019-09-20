@@ -1,0 +1,60 @@
+---
+title: "Characterizing Changes in Water Masses of the Southwest Pacific"
+image: /s285_research/CTD_cast.JPG
+---
+
+
+
+<div id="aaiw-and-samw-what-are-they-and-where-are-they-located" class="section level3">
+<h3>AAIW and SAMW: What are they and where are they located?</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-1-1.png" width="100%" /></p>
+<p>Antarctic Intermediate Water (AAIW) and Subantarctic Mode Water (SAMW) are two types of water masses formed near Antarctica. A water mass is a body of water with similar physical properties such as temperature, salinity, and density, throughout. These properties are maintained as the water mass moves away from its region of formation and into the interior of the ocean, creating a type of fingerprint.</p>
+<p>The AAIW is a cold, fresh, water mass found between 700 and 1400 meters depth (Wong et al. 1999, Carter et al. 2009). Its depth is determined by the physical properties of both the AAIW and surrounding water masses. To identify the AAIW, we looked for the salinity minimum, which is the depth in the water column where the salinity value (measured in practical salinity units or PSU) is at its lowest point. Changes in this depth over time may be due to Antarctic surface water freshening which results from changes to the hydrologic cycle (increased precipitation/decreased evaporation), decreased winter sea ice formation (less brine rejection into surface waters), and increased glacial, ice shelf, and ice sheet meltwater (Johnson and Orsi, 2005, Carter et al. 2009).</p>
+<p>The SAMW is identified as a zone of homogenous termperature, salinity, and density in an otherwise variable thermocline layer (Piola and Georgi, 1982). Changes in the vertical placement of this water mass may be due to warming and freshening of surface waters north of the Subantarctic Front (SAF), where this water mass forms (Carter et al. 2009, McCartnet, 1982).</p>
+<p>The AAIW and SAMW are important indicators of changing surface contditions near Antarctica and we are able to measure them far from their source and hypothesize what surface conditions were like when they formed. Surface water properties determine both the rate of subduction of the water mass and the volume of anthropogenic CO2 that is sequestered into the ocean alone with it. Both of these factors have important implications regarding global warming and climate change (Carter et al. 2009).</p>
+<p>Our CTD results show the AAIW is located between 700 and 1000 meters and the SAMW between 100 and 300 meters. The depths and values of the AAIW are consitent with the previous four years of SEA semester data. There are no obvous trends in the vertical location of the AAIW and SAW over these five years.</p>
+<p>This profile of a CTD cast taken during our cruise shows the location of the AAIW which is defined by the salinity minimum, or the depth at which the salinity value has the smallest psu value. This cast shows the AAIW between 750 and 1000 meters.</p>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-2-1.png" width="100%" /></p>
+<p>This figure shows the SAMW from approximately 100-200 meters depth. The SAMW is defined by the vertical and thus homogenous temperature or density portion of a water column past the thermocline. This verical line can be seen above between 100-200 meters. We used each ctd cast like the one above in order to determine the distribution of the SAMW. On our trip and the past trip, we observed more SAMW in our CTD casts than the other three casts. Perhaps this is due to both of our northward cruise tracks when compared to the other cruises.</p>
+</div>
+<div id="methods-ctd-casts-and-plotting-in-r" class="section level3">
+<h3>Methods: CTD Casts and Plotting in R</h3>
+<div class="figure">
+<img src="CTD_cast.jpg" />
+
+</div>
+<p>This image shows the CTD/Rosette (hydrocast) being deployed. We deployed the hydrocast to approximately 1200 meters each day at 1200; out of 28 deployments we reached the AAIW 17 times. The hydrocast measures salinity, temperature, and dissolved oxygen (DO) at approximately two second intervals beginning at five meters depth and continuing down to the pre-planned depth. Inclement weather, shallow water, and a large wire angle sometimes prevented the hydrocast from deploying or deploying deep enough. Because of this, during the first two weeks of the cruise, it is unclear whether we saw the complete AAIW or just a portion of it. We ultimately decided to include these beginning datapoints in the graphs.</p>
+<p>We analyzed our cruise data using R, by plotting salinity, potential temperature, potential density, and DO versus depth. Through these measurements, we determined where the salinity minimums are located.</p>
+<p>We also plotted the salinity minimums and their corresponding potential temperature, potential density, DO, and depth along the cruise track. We previously plotted these characteristics in R from previous cruise track data. We compared this plotted data to our cruise data and looked for changes over the past five years.</p>
+</div>
+<div id="s285-cruise-track-from-new-zealand-to-tahiti" class="section level3">
+<h3>S285 Cruise Track from New Zealand to Tahiti</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-3-1.png" width="100%" /></p>
+<p>This map shows our cruise track (in black) from New Zealand to Tahiti and the locations of the CTD deployments. Compared to previous cruises, we turned north much sooner. We saw more of the SAMW on our cruise than S258, S265, and S272 which travelled further east before turning north.</p>
+</div>
+<div id="salinity-minimums-of-the-aaiw" class="section level3">
+<h3>Salinity Minimums of the AAIW</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-4-1.png" width="100%" /></p>
+<hr />
+<p>This figure shows the salinity minimums of the AAIW on all five cruises. To create this figure, we took each salinity minimum from each CTD cast and plotted them for every cruise. The patterns are similar, but it seems that for our cruise and S278, the salinity minimum values towards the beginning of the cruise were higher than previous cruises at those same locations. For our cruise, this may have been an error since our wire did not deploy deep enough during the first weeks. Thus, our CTD cast graphs did not reach the end of the curve like the one shown in the summary section yet we plotted them anyway. Therefore our salinity minimums may have shown higher salinities than the true minimums. If these are reputable values, it may seem that our hypothesis if freshening occurring may be incorrect as the AAIW seems to be becoming a bit saltier. However, there are many possible confounding variables such as human error or our track being different than previous tracks.</p>
+</div>
+<div id="depth-of-salinity-minimums-of-the-aaiw" class="section level3">
+<h3>Depth of Salinity Minimums of the AAIW</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-5-1.png" width="100%" /></p>
+<p>This figure shows the depths of the salinity minimums for all cruises. We can see from this graph that the depth of the salinity minimums for AAIW seems to be decreasing (or shallowing upward) as latitude decreases. All of the cruise tracks seem to be following a similar pattern as one another.</p>
+</div>
+<div id="potential-temperature-of-salinity-minimums-of-the-aaiw" class="section level3">
+<h3>Potential Temperature of Salinity Minimums of the AAIW</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-6-1.png" width="100%" /></p>
+<p>This is a figure showing the potential temperature of the AAIW salinity minimums for all cruises. The potential temperature for all cruises seems to decrease towards the center of the cruise track, and increase towards the end of the cruise track. Perhaps this is evidence for warming of the AAIW, though it is difficult to say.</p>
+</div>
+<div id="dissolved-oxygen-of-salinity-minimums-of-the-aaiw" class="section level3">
+<h3>Dissolved Oxygen of Salinity Minimums of the AAIW</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-7-1.png" width="100%" /></p>
+<p>This figure shows the dissolved oxygen (DO) values of the AAIW salinity minimums for all cruises. All of the cruises other than ours follow a similar pattern of approximately 4.8 ppm DO from the beginning of the cruise track until about 25ºS when they all begin to decrease in the lower latitudes. Our cruise track follows a similar pattern, but it is shifted down by about 1 ppm to 3.8 ppm. Perhaps this is an error in our data collection for dissolved oxygen, or a large shift in the dissolved oxygen content of the water.</p>
+</div>
+<div id="potential-density-of-salinity-minimums-of-the-aaiw" class="section level3">
+<h3>Potential Density of Salinity Minimums of the AAIW</h3>
+<p><img src="/s285_research/ginny_amy_files/figure-html/unnamed-chunk-8-1.png" width="100%" /></p>
+<p>This is a figure showing the potential density of the AAIW salinity minimums. Most cruises seem to follow a similar pattern of slightly increasing nearer the lower latitudes. Most cruises also seem to be following an increasing pattern at the beginning, though this pattern is a bit less defined. It seems that the densities of the AAIW are staying approximately the same from year to year, suggesting that with our five years of data, not much can be said about the shifting of the AAIW in any way.</p>
+</div>
